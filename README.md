@@ -15,5 +15,5 @@ $ docker run -it --rm -v $(pwd)/output:/usr/src/app/output test-socket-app
 List current Docker containers:
 $ docker ps -a
 Stop Docker container:
-# docker stop <container ID>  
+$ docker stop <container ID>  
 
