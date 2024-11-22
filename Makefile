@@ -1,7 +1,8 @@
 # Makefile
 
-CC = g++
+#CC = g++
 CFLAGS = -Wall -g
+LDFLAGS = -lstdc++
 
 all: generate_version server client
 
@@ -9,16 +10,16 @@ generate_version:
 	./gen_version.sh
 
 server: server.o
-	$(CC) $(CFLAGS) -o server server.o
+	$(CXX) $(CFLAGS) -o server server.o $(LDFLAGS)
 
 client: client.o 
-	$(CC) $(CFLAGS) -o client client.o
+	$(CXX) $(CFLAGS) -o client client.o $(LDFLAGS)
 
 server.o: server.cpp version.h
-	$(CC) $(CFLAGS) -c server.cpp
+	$(CXX) $(CFLAGS) -c server.cpp
 
 client.o: client.cpp 
-	$(CC) $(CFLAGS) -c client.cpp
+	$(CXX) $(CFLAGS) -c client.cpp
 
 clean:
 	rm -f *.o server client version.h
